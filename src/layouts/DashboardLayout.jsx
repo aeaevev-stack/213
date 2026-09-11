@@ -24,12 +24,12 @@ const SidebarItem = ({ to, icon: Icon, label, active, onClick }) => (
     <Link
         to={to}
         onClick={onClick}
-        className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all duration-300 text-sm ${active
-            ? "bg-slate-900 dark:bg-white/10 text-white shadow-sm"
-            : "text-slate-900 dark:text-white hover:bg-slate-900/5 dark:hover:bg-white/5"
+        className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium transition-all duration-200 text-sm ${active
+            ? "bg-foreground text-background shadow-sm"
+            : "text-muted-foreground hover:text-foreground hover:bg-secondary/70"
             }`}
     >
-        <Icon className="w-5 h-5 flex-shrink-0" />
+        <Icon className={`w-4 h-4 flex-shrink-0 ${active ? "text-background" : "text-muted-foreground"}`} />
         <span>{label}</span>
     </Link>
 );
@@ -60,7 +60,7 @@ export default function DashboardLayout() {
 
     const SidebarContent = () => (
         <>
-            <div className="p-6 space-y-2 overflow-y-auto flex-1">
+            <div className="p-4 space-y-1.5 overflow-y-auto flex-1">
                 <SidebarItem
                     to="/dashboard"
                     icon={LayoutDashboard}
@@ -103,9 +103,9 @@ export default function DashboardLayout() {
                     active={isActive("/whois")}
                     onClick={() => setSidebarOpen(false)}
                 />
-                <div className="pt-4 border-t border-slate-200/80 dark:border-white/10 my-2"></div>
+                <div className="pt-3 border-t border-border my-2"></div>
                 {/* Analytics placeholder */}
-                <div className="opacity-50 pointer-events-none">
+                <div className="opacity-40 pointer-events-none">
                     <SidebarItem to="#" icon={BarChart3} label="Analytics (Soon)" active={false} />
                 </div>
                 <SidebarItem
@@ -131,15 +131,15 @@ export default function DashboardLayout() {
                 />
             </div>
 
-            <div className="p-6 border-t border-slate-200/80 dark:border-white/10 bg-transparent">
+            <div className="p-4 border-t border-border bg-transparent">
                 <button
                     onClick={() => {
                         setSidebarOpen(false);
                         logout();
                     }}
-                    className="w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl font-bold text-red-600 bg-red-50 dark:bg-red-500/10 hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors text-sm"
+                    className="w-full flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-xl font-medium text-destructive hover:bg-destructive/10 transition-colors text-sm"
                 >
-                    <LogOut className="w-5 h-5" />
+                    <LogOut className="w-4 h-4" />
                     <span>Sign Out</span>
                 </button>
             </div>
@@ -154,43 +154,43 @@ export default function DashboardLayout() {
                 {/* Mobile Hamburger Button */}
                 <button
                     onClick={() => setSidebarOpen(!sidebarOpen)}
-                    className="md:hidden fixed top-[calc(5rem+var(--incident-height,0px))] left-4 z-50 p-2 bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-md transition-all"
+                    className="md:hidden fixed top-[calc(5rem+var(--incident-height,0px))] left-4 z-50 p-2.5 bg-card/80 backdrop-blur-xl border border-border rounded-xl shadow-sm text-foreground hover:bg-muted transition-all"
                     aria-label="Toggle menu"
                 >
                     {sidebarOpen ? (
-                        <X className="w-6 h-6 text-slate-900 dark:text-white" />
+                        <X className="w-5 h-5 text-foreground" />
                     ) : (
-                        <Menu className="w-6 h-6 text-slate-900 dark:text-white" />
+                        <Menu className="w-5 h-5 text-foreground" />
                     )}
                 </button>
 
                 {/* Mobile Backdrop */}
                 {sidebarOpen && (
                     <div
-                        className="fixed inset-0 bg-black/50 z-30 md:hidden"
+                        className="fixed inset-0 bg-background/80 backdrop-blur-sm z-30 md:hidden"
                         onClick={() => setSidebarOpen(false)}
                     />
                 )}
 
                 <div className="flex flex-1 pt-[calc(4rem+var(--incident-height,0px))]">
                     {/* Desktop Sidebar */}
-                    <aside className="w-64 bg-white/60 dark:bg-white/5 backdrop-blur-2xl border-r border-slate-200/80 dark:border-white/10 hidden md:flex md:flex-col fixed top-[calc(4rem+var(--incident-height,0px))] h-[calc(100vh-4rem-var(--incident-height,0px))] z-10">
+                    <aside className="w-64 bg-card/70 backdrop-blur-2xl border-r border-border hidden md:flex md:flex-col fixed top-[calc(4rem+var(--incident-height,0px))] h-[calc(100vh-4rem-var(--incident-height,0px))] z-10">
                         <SidebarContent />
                     </aside>
 
                     {/* Mobile Sidebar */}
                     <aside
-                        className={`fixed top-[var(--incident-height,0px)] left-0 h-[calc(100vh-var(--incident-height,0px))] w-64 bg-white/80 dark:bg-[#111]/80 backdrop-blur-2xl border-r border-slate-200/80 dark:border-white/10 z-40 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                        className={`fixed top-[var(--incident-height,0px)] left-0 h-[calc(100vh-var(--incident-height,0px))] w-64 bg-card/95 backdrop-blur-2xl border-r border-border z-40 transform transition-transform duration-300 ease-in-out md:hidden flex flex-col ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'
                             }`}
                     >
                         {/* Mobile sidebar header with close button */}
-                        <div className="flex items-center justify-between p-4 border-b border-slate-200/80 dark:border-white/10 mt-16">
-                            <h2 className="text-lg font-bold text-slate-900 dark:text-white">Menu</h2>
+                        <div className="flex items-center justify-between p-4 border-b border-border mt-16">
+                            <h2 className="text-sm font-semibold uppercase tracking-wider text-foreground">Menu</h2>
                             <button
                                 onClick={() => setSidebarOpen(false)}
-                                className="p-2 hover:bg-slate-900/5 dark:hover:bg-white/5 rounded-lg transition-colors"
+                                className="p-2 hover:bg-secondary rounded-lg transition-colors text-muted-foreground hover:text-foreground"
                             >
-                                <X className="w-5 h-5 text-slate-900 dark:text-white" />
+                                <X className="w-4 h-4" />
                             </button>
                         </div>
                         <SidebarContent />

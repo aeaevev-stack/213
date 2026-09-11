@@ -1,19 +1,32 @@
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer-section';
 
 export default function NotFound() {
     return (
-        <div className="min-h-screen bg-[#FFF8F0] flex flex-col items-center justify-center p-4 text-center" style={{ paddingTop: 'var(--incident-height, 0px)' }}>
-            <h1 className="text-9xl font-bold text-[#FF6347] mb-4">404</h1>
-            <h2 className="text-3xl font-bold text-[#2D3748] mb-6">Page Not Found</h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-md">
-                Oops! The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
-            </p>
-            <Link to="/">
-                <Button className="bg-[#FF6347] hover:bg-[#FF4500] text-white px-8 py-6 text-lg rounded-full">
-                    Go Back Home
-                </Button>
-            </Link>
+        <div className="min-h-screen flex flex-col bg-transparent">
+            <Header />
+            <main className="flex-1 flex flex-col items-center justify-center p-6 text-center pt-[calc(6rem+var(--incident-height,0px))] pb-16">
+                <span className="text-xs font-semibold uppercase tracking-widest text-signal mb-4 px-3 py-1 rounded-full bg-signal/10 border border-signal/20">
+                    Error 404
+                </span>
+                <h1 className="text-8xl md:text-9xl font-display font-medium text-foreground tracking-tighter mb-2">
+                    404
+                </h1>
+                <h2 className="text-2xl md:text-3xl font-display font-normal text-foreground mb-4">
+                    Page Not Found
+                </h2>
+                <p className="text-base text-muted-foreground mb-8 max-w-md">
+                    The requested route does not exist or has been relocated within the Stackryze domain registry.
+                </p>
+                <Link
+                    to="/"
+                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-foreground text-background font-semibold text-sm hover:bg-signal hover:text-signal-foreground transition-all duration-200 shadow-sm"
+                >
+                    Return to Registry
+                </Link>
+            </main>
+            <Footer />
         </div>
     );
 }

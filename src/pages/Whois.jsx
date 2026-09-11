@@ -81,17 +81,18 @@ export function Whois() {
             {/* Hero */}
             <section className="pt-[calc(6rem+var(--incident-height,0px))] pb-8 px-6">
                 <div className="max-w-3xl mx-auto text-center">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold uppercase tracking-widest mb-6 shadow-sm">
-                        <Globe className="w-3 h-3 text-orange-500" />
-                        <span>Domain WHOIS</span>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/80 border border-border text-foreground text-xs font-semibold uppercase tracking-widest mb-6 backdrop-blur-md">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-signal opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-signal"></span>
+                        </span>
+                        <span>Registry Directory</span>
                     </div>
-                    <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-2 leading-tight">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground mb-4 leading-tight tracking-tight">
                         WHOIS Lookup
                     </h1>
-                    <p className="text-sm text-slate-900 dark:text-white font-medium max-w-xl mx-auto">
-                        Look up registration details for any domain on the{" "}
-                        <span className="font-bold text-slate-900 dark:text-white">Stackryze</span> free
-                        domain registry.
+                    <p className="text-base text-muted-foreground font-normal max-w-xl mx-auto">
+                        Query live registration records, delegation status, and name servers across all Stackryze free domain extensions.
                     </p>
                 </div>
             </section>
@@ -99,49 +100,49 @@ export function Whois() {
             {/* Search Bar */}
             <section className="pb-8 px-6">
                 <div className="max-w-2xl mx-auto">
-                    <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 bg-white/60 dark:bg-white/5 backdrop-blur-md p-2 border border-slate-200/80 dark:border-white/10 rounded-2xl shadow-sm focus-within:border-slate-900 dark:focus-within:border-white transition-all">
+                    <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 bg-card/80 backdrop-blur-xl p-2 border border-border rounded-2xl shadow-sm focus-within:border-foreground/30 transition-all">
                         <input
                             type="text"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
-                            placeholder="e.g. myproject.indevs.in or mybrand.sryze.cc or myapp.ryzedns.org or myapp.nx.kg or myapp.ryzn.pro"
-                            className="flex-1 px-4 py-3 text-slate-900 dark:text-white bg-transparent font-mono text-sm outline-none placeholder:text-slate-400 w-full"
+                            placeholder="e.g. myproject.indevs.in or mybrand.sryze.cc or myapp.ryzedns.org"
+                            className="flex-1 px-4 py-3 text-foreground bg-transparent font-mono text-sm outline-none placeholder:text-muted-foreground w-full"
                             disabled={loading}
                             autoFocus
                         />
                         <button
                             type="submit"
                             disabled={loading || !query.trim()}
-                            className="flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm rounded-xl hover:bg-orange-500 hover:text-white dark:hover:bg-orange-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap shadow-sm"
+                            className="flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background font-semibold text-sm rounded-xl hover:bg-signal hover:text-signal-foreground transition-all disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap shadow-sm"
                         >
                             {loading ? (
                                 <Loader2 className="w-4 h-4 animate-spin" />
                             ) : (
                                 <Search className="w-4 h-4" />
                             )}
-                            {loading ? "Looking up…" : "Search"}
+                            {loading ? "Looking up…" : "Lookup"}
                         </button>
                     </form>
 
                     {/* Supported domains hint */}
-                    <p className="text-xs font-medium text-slate-900 dark:text-white mt-2 text-center">
-                        Supported: <span className="font-mono font-bold text-slate-900 dark:text-white">.indevs.in</span> &amp;{" "}
-                        <span className="font-mono font-bold text-slate-900 dark:text-white">.sryze.cc</span> &amp;{" "}
-                        <span className="font-mono font-bold text-slate-900 dark:text-white">.ryzedns.org</span>
-                        <span className="text-slate-400 dark:text-slate-500 mx-1">·</span>
-                        <span className="font-mono font-bold text-slate-900 dark:text-white">.nx.kg</span> &amp;{" "}
-                        <span className="font-mono font-bold text-slate-900 dark:text-white">.ryzn.pro</span>
+                    <p className="text-xs text-muted-foreground mt-3 text-center">
+                        Supported: <span className="font-mono font-medium text-foreground">.indevs.in</span> &amp;{" "}
+                        <span className="font-mono font-medium text-foreground">.sryze.cc</span> &amp;{" "}
+                        <span className="font-mono font-medium text-foreground">.ryzedns.org</span>
+                        <span className="text-border mx-1.5">·</span>
+                        <span className="font-mono font-medium text-foreground">.nx.kg</span> &amp;{" "}
+                        <span className="font-mono font-medium text-foreground">.ryzn.pro</span>
                     </p>
                 </div>
             </section>
 
             {error && (
                 <section className="px-6 pb-8">
-                    <div className="max-w-2xl mx-auto bg-red-100 dark:bg-red-500/20 border border-red-200 dark:border-red-500/30 rounded-2xl p-5 flex gap-3 items-start shadow-sm">
-                        <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+                    <div className="max-w-2xl mx-auto bg-destructive/10 border border-destructive/20 rounded-2xl p-5 flex gap-3 items-start shadow-sm">
+                        <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
                         <div>
-                            <p className="font-bold text-red-900 dark:text-red-300 text-sm mb-1">Lookup Failed</p>
-                            <p className="text-sm font-bold text-red-800 dark:text-red-400">{error}</p>
+                            <p className="font-semibold text-destructive text-sm mb-1">Lookup Failed</p>
+                            <p className="text-sm text-foreground/80">{error}</p>
                         </div>
                     </div>
                 </section>
@@ -149,44 +150,49 @@ export function Whois() {
 
             {/* WHOIS Result */}
             {result && (
-                <section className="px-6 pb-6">
+                <section className="px-6 pb-8">
                     <div className="max-w-2xl mx-auto">
                         {/* Result header */}
-                        <div className="flex items-center justify-between mb-2">
-                            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white">
-                                WHOIS Record
+                        <div className="flex items-center justify-between mb-3">
+                            <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                                Live WHOIS Record
                             </h2>
                             <button
                                 onClick={handleCopy}
-                                className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 bg-white/60 dark:bg-white/5 backdrop-blur-md border border-slate-200/80 dark:border-white/10 rounded-xl text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-white/10 transition-all shadow-sm"
+                                className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 bg-card/80 backdrop-blur-md border border-border rounded-xl text-foreground hover:bg-muted transition-all shadow-sm"
                             >
                                 {copied ? (
                                     <>
-                                        <Check className="w-3 h-3 text-green-500" />
-                                        Copied!
+                                        <Check className="w-3.5 h-3.5 text-signal" />
+                                        <span>Copied!</span>
                                     </>
                                 ) : (
                                     <>
-                                        <Copy className="w-3 h-3" />
-                                        Copy
+                                        <Copy className="w-3.5 h-3.5 text-muted-foreground" />
+                                        <span>Copy Record</span>
                                     </>
                                 )}
                             </button>
                         </div>
 
                         {/* Classic WHOIS output block */}
-                        <div className="bg-slate-900 dark:bg-[#111] rounded-2xl font-mono text-sm overflow-hidden shadow-lg border border-slate-800 dark:border-white/10">
+                        <div className="bg-card/90 backdrop-blur-xl rounded-2xl font-mono text-sm overflow-hidden shadow-lg border border-border">
                             {/* Domain name banner */}
-                            <div className="px-5 pt-4 pb-2 border-b border-slate-800 dark:border-white/10">
-                                <span className="text-orange-400 font-bold text-xs uppercase tracking-widest">
-                                    Domain Name:
-                                </span>{" "}
-                                <span className="text-white font-bold">
-                                    {result.domainName.toUpperCase()}
+                            <div className="px-5 py-3.5 border-b border-border bg-muted/40 flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-signal font-semibold text-xs uppercase tracking-widest">
+                                        Domain:
+                                    </span>
+                                    <span className="text-foreground font-bold">
+                                        {result.domainName.toUpperCase()}
+                                    </span>
+                                </div>
+                                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-signal/10 text-signal border border-signal/20">
+                                    Active Registry
                                 </span>
                             </div>
 
-                            <div className="px-5 py-4 space-y-1 leading-relaxed">
+                            <div className="px-5 py-4 space-y-1.5 leading-relaxed">
                                 <WhoisLine label="Registrar WHOIS Server" value={result.registrarWhoisServer} />
                                 <WhoisLine label="Registrar URL" value={result.registrarUrl} />
                                 <div className="pt-1" />
@@ -212,9 +218,9 @@ export function Whois() {
                             </div>
 
                             {/* Footer line */}
-                            <div className="px-5 pb-4 pt-1 border-t border-slate-800 dark:border-white/10 text-slate-500 dark:text-slate-400 text-xs">
+                            <div className="px-5 py-3 border-t border-border text-muted-foreground text-xs bg-muted/20">
                                 &gt;&gt;&gt; Last update of WHOIS database:{" "}
-                                <span className="text-slate-300 dark:text-slate-200 font-bold">{formatDate(new Date().toISOString())}</span> &lt;&lt;&lt;
+                                <span className="text-foreground font-semibold">{formatDate(new Date().toISOString())}</span> &lt;&lt;&lt;
                             </div>
                         </div>
                     </div>
@@ -222,27 +228,27 @@ export function Whois() {
             )}
 
             {/* Terms of Use */}
-            <section className="pb-10 px-6">
-                <div className="max-w-2xl mx-auto border border-slate-200/80 dark:border-white/10 bg-white/60 dark:bg-white/5 backdrop-blur-md rounded-2xl p-4 shadow-sm">
-                    <h3 className="text-xs font-bold uppercase tracking-widest text-slate-900 dark:text-white mb-3">
+            <section className="pb-16 px-6">
+                <div className="max-w-2xl mx-auto border border-border bg-card/60 backdrop-blur-md rounded-2xl p-6 shadow-sm">
+                    <h3 className="text-xs font-semibold uppercase tracking-widest text-foreground mb-3">
                         Terms of Use
                     </h3>
-                    <p className="text-xs font-medium text-slate-900 dark:text-white leading-relaxed">
+                    <p className="text-xs text-muted-foreground leading-relaxed">
                         Access to Stackryze FreeDomain WHOIS information is provided to assist
                         users in understanding the registration details of domain names managed
                         by the Stackryze registry. This data is made available for informational
                         purposes only. This service is intended solely for manual, query-based
                         access.
                     </p>
-                    <p className="text-xs font-medium text-slate-900 dark:text-white leading-relaxed mt-2">
+                    <p className="text-xs text-muted-foreground leading-relaxed mt-2">
                         By accessing this data, you agree that it shall be used only for lawful
                         purposes and not to (a) enable or support unsolicited commercial
                         messages; or (b) automate high-volume queries. Use of this system for
                         data harvesting, spamming, or abuse is strictly prohibited.
                     </p>
-                    <p className="text-xs font-bold text-slate-900 dark:text-white mt-3 italic">
+                    <p className="text-xs font-medium text-foreground/80 mt-3 italic">
                         Registrant personally identifiable information (name, address, phone) is
-                        always redacted to protect privacy. Only the registrant email is shown.
+                        redacted to protect privacy. Only the registry contact email is exposed.
                     </p>
                 </div>
             </section>
@@ -253,14 +259,14 @@ export function Whois() {
 }
 
 function WhoisLine({ label, value, accent, dim, highlight }) {
-    let valueClass = "text-[#e2e8f0]";
-    if (accent) valueClass = "text-[#4ade80]";
-    if (dim) valueClass = "text-[#6b7280] italic";
-    if (highlight) valueClass = "text-[#fbbf24]";
+    let valueClass = "text-foreground";
+    if (accent) valueClass = "text-signal font-semibold";
+    if (dim) valueClass = "text-muted-foreground italic";
+    if (highlight) valueClass = "text-amber-500 font-semibold";
 
     return (
-        <div className="flex flex-wrap gap-x-1">
-            <span className="text-[#94a3b8] shrink-0">{label}:</span>
+        <div className="flex flex-wrap gap-x-2">
+            <span className="text-muted-foreground shrink-0">{label}:</span>
             <span className={valueClass}>{value}</span>
         </div>
     );

@@ -24,43 +24,10 @@ export function Header() {
 
         {/* Left Side: Logo */}
         <div className="flex items-center">
-          <a href="/" className="flex items-center gap-2 sm:gap-4 group">
-            <div className="flex items-center gap-2 sm:gap-3">
-              <img src="/stackryze_logo_black.png" alt="Stackryze Logo" className="h-8 sm:h-10 md:h-10 w-auto dark:hidden" />
-              <img src="/stackryze_logo_white.png" alt="Stackryze Logo" className="h-8 sm:h-10 md:h-10 w-auto hidden dark:block" />
-              <span className="text-sm sm:text-lg md:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">Stackryze Domains</span>
-            </div>
-            <div className="hidden xl:block h-5 w-[1px] bg-slate-300 dark:bg-slate-700"></div>
-            <div className="hidden xl:flex items-baseline gap-0.5">
-              <div className="flex items-center font-bold text-lg tracking-tight gap-0.5">
-                <span className="text-orange-500">IN</span>
-                <span className="text-slate-900 dark:text-white">DE</span>
-                <span className="text-green-600">VS</span>
-              </div>
-              <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 tracking-tight">.in</span>
-            </div>
-            <div className="hidden xl:block h-5 w-[1px] bg-slate-300 dark:bg-slate-700"></div>
-            <div className="hidden xl:flex items-baseline gap-0.5">
-              <div className="flex items-center font-bold text-lg tracking-tight gap-0.5">
-                <span className="text-slate-900 dark:text-white">SRYZE</span>
-              </div>
-              <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 tracking-tight">.cc</span>
-            </div>
-            <div className="hidden xl:block h-5 w-[1px] bg-slate-300 dark:bg-slate-700"></div>
-            <div className="hidden xl:flex items-baseline gap-0.5">
-              <div className="flex items-center font-bold text-lg tracking-tight gap-0.5">
-                <span className="text-rose-500">RYZE</span>
-                <span className="text-slate-900 dark:text-white">DNS</span>
-              </div>
-              <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 tracking-tight">.org</span>
-            </div>
-            <div className="hidden xl:block h-5 w-[1px] bg-slate-300 dark:bg-slate-700"></div>
-            <div className="hidden xl:flex items-baseline gap-0.5">
-              <div className="flex items-center font-bold text-lg tracking-tight gap-0.5">
-                <span className="text-slate-900 dark:text-white">NX</span>
-              </div>
-              <span className="text-sm font-semibold text-slate-500 dark:text-slate-400 tracking-tight">.kg</span>
-            </div>
+          <a href="/" className="flex items-center gap-2 sm:gap-3 group">
+            <img src="/stackryze_logo_black.png" alt="Stackryze Logo" className="h-8 sm:h-10 md:h-10 w-auto dark:hidden" />
+            <img src="/stackryze_logo_white.png" alt="Stackryze Logo" className="h-8 sm:h-10 md:h-10 w-auto hidden dark:block" />
+            <span className="text-base sm:text-lg md:text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">Stackryze Domains</span>
           </a>
         </div>
 

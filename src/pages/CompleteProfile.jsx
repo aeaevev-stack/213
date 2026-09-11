@@ -82,137 +82,136 @@ export default function CompleteProfile() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-[#FFF8F0] px-4 font-sans py-10" style={{ paddingTop: 'var(--incident-height, 0px)' }}>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-transparent px-4 font-sans py-12" style={{ paddingTop: 'calc(var(--incident-height, 0px) + 2rem)' }}>
             <Link to="/" className="mb-8 flex items-center gap-3 group">
-                <img src="/stackryze_logo_black.png" alt="Stackryze Logo" className="h-12 w-auto dark:hidden" />
-                        <img src="/stackryze_logo_white.png" alt="Stackryze Logo" className="h-12 w-auto hidden dark:block" />
-                <span className="text-2xl font-bold text-[#1A1A1A] dark:text-white tracking-tight">Stackryze Domains</span>
+                <img src="/stackryze_logo_black.png" alt="Stackryze Logo" className="h-9 w-auto dark:hidden" />
+                <img src="/stackryze_logo_white.png" alt="Stackryze Logo" className="h-9 w-auto hidden dark:block" />
+                <span className="text-xl font-display font-medium text-foreground tracking-tight">Stackryze Domains</span>
             </Link>
 
-            <div className="w-full max-w-2xl bg-white dark:bg-[#111] border-2 border-[#E5E3DF] dark:border-[#27272a] p-8 md:p-10 rounded-xl">
-                <div className="mb-6 bg-yellow-50 border border-yellow-200 text-yellow-800 p-4 rounded-lg flex gap-3 text-sm">
-                    <AlertCircle className="w-5 h-5 flex-shrink-0 text-yellow-600" />
+            <div className="w-full max-w-2xl bg-card/80 backdrop-blur-xl border border-border p-8 md:p-10 rounded-2xl shadow-sm">
+                <div className="mb-6 bg-amber-500/10 border border-amber-500/20 text-foreground p-4 rounded-xl flex gap-3 text-sm">
+                    <AlertCircle className="w-5 h-5 flex-shrink-0 text-amber-500 mt-0.5" />
                     <div>
-                        <p className="font-bold mb-1">Action Required</p>
-                        <p>To continue using Stackryze Domains, we need you to complete your profile with your legal name and address in accordance with our updated policies.</p>
+                        <p className="font-semibold text-amber-500 mb-1">Action Required</p>
+                        <p className="text-xs text-muted-foreground">To continue using Stackryze Domains, please complete your profile with your legal registrant name and address in accordance with ICANN registry standards.</p>
                     </div>
                 </div>
 
                 <div className="text-center mb-8">
-                    <h1 className="text-2xl font-bold text-[#1A1A1A] dark:text-white mb-2">Complete Your Profile</h1>
-                    <p className="text-[#4A4A4A] dark:text-slate-400">Please provide the missing details below</p>
+                    <h1 className="text-3xl font-display font-medium text-foreground mb-2">Complete Your Profile</h1>
+                    <p className="text-sm text-muted-foreground">Please provide the missing registry details below</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
 
                     {/* Account Verification */}
-                    <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 mb-6">
-                        <h3 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">Verification</h3>
+                    <div className="bg-muted/30 p-5 rounded-xl border border-border space-y-3">
+                        <h3 className="text-xs font-semibold text-foreground uppercase tracking-wider">Account Credentials</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <label className="block text-xs font-medium text-muted-foreground mb-1.5">Email Address</label>
                                 <input
                                     type="email"
                                     name="email"
                                     value={formData.email}
-                                    readOnly // Email is read-only here
-                                    className="w-full px-3 py-2 border border-gray-200 bg-gray-100 text-gray-500 rounded-lg cursor-not-allowed"
+                                    readOnly
+                                    className="w-full px-3.5 py-2.5 border border-border bg-muted/50 text-muted-foreground rounded-xl cursor-not-allowed text-sm font-mono"
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Confirm Password <span className="text-xs text-gray-500">(optional if already logged in)</span></label>
+                                <label className="block text-xs font-medium text-muted-foreground mb-1.5">Confirm Password <span className="text-muted-foreground/70">(optional)</span></label>
                                 <input
                                     type="password"
                                     name="password"
                                     value={formData.password}
                                     onChange={handleChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
-                                    placeholder="Enter your password for verification"
+                                    className="w-full px-3.5 py-2.5 border border-border bg-background rounded-xl text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-foreground/30"
+                                    placeholder="Enter password if needed"
                                 />
                             </div>
                         </div>
                     </div>
 
-
                     {/* Personal Info */}
                     <div className="space-y-4">
-                        <h3 className="text-sm font-bold text-gray-900 border-b border-gray-100 pb-2 uppercase tracking-wider">Personal Details</h3>
+                        <h3 className="text-xs font-semibold text-foreground border-b border-border pb-2 uppercase tracking-wider">Registrant Details</h3>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Full Legal Name</label>
+                            <label className="block text-xs font-medium text-muted-foreground mb-1.5">Full Legal Name</label>
                             <input
                                 type="text"
                                 name="legalName"
                                 required
                                 value={formData.legalName}
                                 onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
-                                placeholder="John Doe"
+                                className="w-full px-3.5 py-2.5 border border-border bg-background rounded-xl text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-foreground/30"
+                                placeholder="Jane Doe"
                             />
-                            <p className="text-xs text-gray-500 mt-1">Required for domain registration compliance.</p>
+                            <p className="text-xs text-muted-foreground mt-1">Required for domain registration compliance.</p>
                         </div>
 
                         {/* Address Fields */}
-                        <div className="grid grid-cols-1 gap-4">
+                        <div className="space-y-4">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
+                                <label className="block text-xs font-medium text-muted-foreground mb-1.5">Street Address</label>
                                 <input
                                     type="text"
                                     name="address.street"
                                     required
                                     value={formData.address.street}
                                     onChange={handleChange}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
-                                    placeholder="123 Main St"
+                                    className="w-full px-3.5 py-2.5 border border-border bg-background rounded-xl text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-foreground/30"
+                                    placeholder="123 Innovation Way"
                                 />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">City</label>
+                                    <label className="block text-xs font-medium text-muted-foreground mb-1.5">City</label>
                                     <input
                                         type="text"
                                         name="address.city"
                                         required
                                         value={formData.address.city}
                                         onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
-                                        placeholder="New York"
+                                        className="w-full px-3.5 py-2.5 border border-border bg-background rounded-xl text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-foreground/30"
+                                        placeholder="San Francisco"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">State / Province</label>
+                                    <label className="block text-xs font-medium text-muted-foreground mb-1.5">State / Province</label>
                                     <input
                                         type="text"
                                         name="address.state"
                                         required
                                         value={formData.address.state}
                                         onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
-                                        placeholder="NY"
+                                        className="w-full px-3.5 py-2.5 border border-border bg-background rounded-xl text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-foreground/30"
+                                        placeholder="CA"
                                     />
                                 </div>
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">Postal Code</label>
+                                    <label className="block text-xs font-medium text-muted-foreground mb-1.5">Postal Code</label>
                                     <input
                                         type="text"
                                         name="address.postalCode"
                                         required
                                         value={formData.address.postalCode}
                                         onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
-                                        placeholder="10001"
+                                        className="w-full px-3.5 py-2.5 border border-border bg-background rounded-xl text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-foreground/30"
+                                        placeholder="94107"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                                    <label className="block text-xs font-medium text-muted-foreground mb-1.5">Country</label>
                                     <input
                                         type="text"
                                         name="address.country"
                                         required
                                         value={formData.address.country}
                                         onChange={handleChange}
-                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                                        className="w-full px-3.5 py-2.5 border border-border bg-background rounded-xl text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-foreground/30"
                                         placeholder="United States"
                                     />
                                 </div>
@@ -223,24 +222,24 @@ export default function CompleteProfile() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full bg-[#1A1A1A] text-white py-4 rounded-lg font-bold hover:shadow-[4px_4px_0px_0px_#FFD23F] transition-all duration-200 disabled:opacity-50 mt-6"
+                        className="w-full bg-foreground text-background py-3.5 rounded-xl font-semibold text-sm hover:bg-signal hover:text-signal-foreground transition-all duration-200 disabled:opacity-50 shadow-sm mt-6"
                     >
                         {loading ? <span className="flex items-center justify-center gap-2"><Loader2 className="animate-spin w-4 h-4" /> Updating Profile...</span> : "Save & Verify Email"}
                     </button>
 
                     <div className="text-center mt-4">
-                        <Link to="/login" className="text-sm text-gray-500 hover:text-black hover:underline">Cancel and go back to login</Link>
+                        <Link to="/login" className="text-xs text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline">Cancel and return to login</Link>
                     </div>
 
                 </form>
             </div>
 
-            <div className="mt-6 text-center text-sm text-gray-600">
-                Need help? <a href="https://discord.gg/wr7s97cfM7" target="_blank" rel="noopener noreferrer" className="text-black font-medium hover:underline">Join our Discord</a> or email <a href="mailto:support@stackryze.com" className="text-black font-medium hover:underline">support@stackryze.com</a>
+            <div className="mt-6 text-center text-xs text-muted-foreground">
+                Need help? <a href="https://discord.gg/wr7s97cfM7" target="_blank" rel="noopener noreferrer" className="text-foreground font-medium hover:text-signal transition-colors underline-offset-4 hover:underline">Join our Discord</a> or email <a href="mailto:support@stackryze.com" className="text-foreground font-medium hover:text-signal transition-colors underline-offset-4 hover:underline">support@stackryze.com</a>
             </div>
 
-            <p className="mt-8 text-xs text-[#888]">
-                &copy; 2026 Stackryze domains
+            <p className="mt-8 text-xs text-muted-foreground/60">
+                &copy; 2026 Stackryze domains · All rights reserved
             </p>
         </div>
     );

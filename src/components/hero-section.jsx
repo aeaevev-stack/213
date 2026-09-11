@@ -116,12 +116,11 @@ export function HeroSection() {
 
           {/* Left: Text */}
           <div className="space-y-6 lg:pr-8">
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-white tracking-tight">
-              A NAME FOR EVERYONE <span className="text-[#6FD1D7]">ONLINE.</span>
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white tracking-tight">
+              A NAME FOR EVERYONE <span className="text-gradient-signal italic">ONLINE.</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-200 max-w-2xl leading-relaxed">
               A public namespace for everyone to belong online. Made for the world. 100% free and open-source.
             </p>
           </div>
@@ -133,7 +132,7 @@ export function HeroSection() {
               Check Availability
             </label>
 
-            <div className="flex border border-white/20 rounded-xl relative z-50 focus-within:ring-2 focus-within:ring-[#6FD1D7]/50 focus-within:border-[#6FD1D7] transition-all bg-[#121214]/70 backdrop-blur-xl">
+            <div className="flex border border-white/20 rounded-xl relative z-50 focus-within:ring-2 focus-within:ring-[#4FBE7A]/50 focus-within:border-[#4FBE7A] transition-all bg-[#121214]/70 backdrop-blur-xl">
               <input
                 type="text"
                 placeholder="yourname"
@@ -167,7 +166,7 @@ export function HeroSection() {
                         >
                           {d.label}
                           {selectedTld.tld === d.tld && (
-                            <CheckCircle className="w-4 h-4 flex-shrink-0 text-[#6FD1D7]" />
+                            <CheckCircle className="w-4 h-4 flex-shrink-0 text-[#4FBE7A]" />
                           )}
                         </button>
                       ))}
@@ -177,7 +176,7 @@ export function HeroSection() {
               </div>
               {isChecking && (
                 <div className="absolute right-44 top-1/2 -translate-y-1/2">
-                  <Loader2 className="w-5 h-5 text-[#6FD1D7] animate-spin" />
+                  <Loader2 className="w-5 h-5 text-[#4FBE7A] animate-spin" />
                 </div>
               )}
             </div>

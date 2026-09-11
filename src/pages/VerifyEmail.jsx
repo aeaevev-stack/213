@@ -118,54 +118,54 @@ export default function VerifyEmail() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-[#FFF8F0] px-4 font-sans" style={{ paddingTop: 'var(--incident-height, 0px)' }}>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-transparent px-4 font-sans py-12" style={{ paddingTop: 'calc(var(--incident-height, 0px) + 2rem)' }}>
             <Link to="/" className="mb-8 flex items-center gap-3 group">
-                <img src="/stackryze_logo_black.png" alt="Stackryze Logo" className="h-12 w-auto dark:hidden" />
-                        <img src="/stackryze_logo_white.png" alt="Stackryze Logo" className="h-12 w-auto hidden dark:block" />
-                <span className="text-2xl font-bold text-[#1A1A1A] dark:text-white tracking-tight">Stackryze Domains</span>
+                <img src="/stackryze_logo_black.png" alt="Stackryze Logo" className="h-9 w-auto dark:hidden" />
+                <img src="/stackryze_logo_white.png" alt="Stackryze Logo" className="h-9 w-auto hidden dark:block" />
+                <span className="text-xl font-display font-medium text-foreground tracking-tight">Stackryze Domains</span>
             </Link>
 
-            <div className="w-full max-w-md bg-white dark:bg-[#111] border-2 border-[#E5E3DF] dark:border-[#27272a] p-8 md:p-10 rounded-xl text-center">
+            <div className="w-full max-w-md bg-card/80 backdrop-blur-xl border border-border p-8 md:p-10 rounded-2xl shadow-sm text-center">
                 {/* NOREPLY EMAIL DETECTION */}
                 {isNoreplyEmail ? (
                     <>
-                        <MailCheck className="w-16 h-16 text-red-500 mx-auto mb-4" />
-                        <h1 className="text-2xl font-bold text-[#1A1A1A] dark:text-white mb-2">Cannot Verify This Email</h1>
+                        <MailCheck className="w-12 h-12 text-destructive mx-auto mb-4" />
+                        <h1 className="text-3xl font-display font-medium text-foreground mb-2">Cannot Verify This Email</h1>
 
-                        <div className="bg-red-50 border border-red-200 text-red-900 p-4 rounded-lg text-left mb-6">
+                        <div className="bg-destructive/10 border border-destructive/20 text-destructive p-4 rounded-xl text-left mb-6">
                             <div className="flex gap-3 mb-3">
-                                <AlertCircle className="w-5 h-5 flex-shrink-0 text-red-600 mt-0.5" />
+                                <AlertCircle className="w-5 h-5 flex-shrink-0 text-destructive mt-0.5" />
                                 <div>
-                                    <p className="font-bold mb-1">GitHub Noreply Email Detected</p>
-                                    <p className="text-sm">This address cannot receive emails.</p>
+                                    <p className="font-semibold text-sm mb-1">GitHub Noreply Email Detected</p>
+                                    <p className="text-xs opacity-90">This address cannot receive external verification emails.</p>
                                 </div>
                             </div>
-                            <p className="text-sm mb-2">Your current email is:</p>
-                            <p className="font-mono text-xs break-all bg-red-100 p-2 rounded">{email}</p>
+                            <p className="text-xs text-muted-foreground mb-1.5 font-medium">Your current email is:</p>
+                            <p className="font-mono text-xs break-all bg-background/50 p-2 rounded-lg border border-destructive/20 text-foreground">{email}</p>
                         </div>
 
                         <div className="space-y-3">
                             <a
                                 href={`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/auth/github`}
-                                className="block w-full bg-[#1A1A1A] text-white py-3 rounded-lg font-bold hover:shadow-[4px_4px_0px_0px_#FFD23F] transition-all duration-200"
+                                className="block w-full bg-foreground text-background py-3.5 rounded-xl font-semibold text-sm hover:bg-signal hover:text-signal-foreground transition-all duration-200 shadow-sm"
                             >
-                                Login with GitHub to Change Email
+                                Re-authenticate with GitHub
                             </a>
-                            <p className="text-xs text-gray-500">
-                                You'll be redirected to update your email immediately after login
+                            <p className="text-xs text-muted-foreground">
+                                You'll be prompted to update your email after login
                             </p>
                         </div>
                     </>
                 ) : (
                     <>
-                        <MailCheck className="w-16 h-16 text-orange-500 mx-auto mb-4" />
-                        <h1 className="text-2xl font-bold text-[#1A1A1A] dark:text-white mb-2">Check your inbox</h1>
-                        <p className="text-[#4A4A4A] dark:text-slate-400 mb-6">
+                        <MailCheck className="w-12 h-12 text-signal mx-auto mb-4" />
+                        <h1 className="text-3xl font-display font-medium text-foreground mb-2">Check your inbox</h1>
+                        <p className="text-sm text-muted-foreground mb-6">
                             We've sent a 6-digit verification code to <br />
-                            <strong className="text-black">{email}</strong>
+                            <strong className="text-foreground font-semibold">{email}</strong>
                         </p>
 
-                        <form onSubmit={handleVerify} className="space-y-4">
+                        <form onSubmit={handleVerify} className="space-y-5">
                             <div className="flex flex-col items-center">
                                 <InputOTP maxLength={6} value={otp} onChange={setOtp} required>
                                     <InputOTPGroup>
@@ -182,7 +182,7 @@ export default function VerifyEmail() {
                             <button
                                 type="submit"
                                 disabled={isLoading || otp.length < 6}
-                                className="w-full bg-[#1A1A1A] text-white py-3 rounded-lg font-bold hover:shadow-[4px_4px_0px_0px_#FFD23F] transition-all duration-200 disabled:opacity-50"
+                                className="w-full bg-foreground text-background py-3.5 rounded-xl font-semibold text-sm hover:bg-signal hover:text-signal-foreground transition-all duration-200 disabled:opacity-50 shadow-sm"
                             >
                                 {isLoading ? <span className="flex items-center justify-center gap-2"><Loader2 className="animate-spin w-4 h-4" /> Verifying...</span> : "Verify Email"}
                             </button>
@@ -198,15 +198,15 @@ export default function VerifyEmail() {
                                             console.error('Turnstile error:', error);
                                             toast({ variant: "destructive", title: "CAPTCHA Error", description: "Unable to load verification." });
                                         }}
-                                        options={{ theme: 'light' }}
+                                        options={{ theme: 'auto' }}
                                     />
                                 </div>
                             )}
-                            <p className="text-xs text-gray-500">Code expires in 10 minutes.</p>
+                            <p className="text-xs text-muted-foreground">Code expires in 10 minutes.</p>
                             <button
                                 onClick={handleResend}
                                 disabled={isResending || !captchaToken}
-                                className="w-full text-sm font-medium text-[#1A1A1A] dark:text-white border-2 border-[#1A1A1A] dark:border-white py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors disabled:opacity-50"
+                                className="w-full text-xs font-semibold text-foreground border border-border py-2.5 rounded-xl hover:bg-secondary transition-colors disabled:opacity-50"
                             >
                                 {isResending ? "Sending..." : "Didn't receive code? Resend"}
                             </button>
@@ -215,8 +215,8 @@ export default function VerifyEmail() {
                 )}
             </div>
 
-            <div className="mt-6 text-center text-sm text-gray-600">
-                Need help? <a href="https://discord.gg/wr7s97cfM7" target="_blank" rel="noopener noreferrer" className="text-black font-medium hover:underline">Join our Discord</a> or email <a href="mailto:support@stackryze.com" className="text-black font-medium hover:underline">support@stackryze.com</a>
+            <div className="mt-6 text-center text-xs text-muted-foreground">
+                Need help? <a href="https://discord.gg/wr7s97cfM7" target="_blank" rel="noopener noreferrer" className="text-foreground font-medium hover:text-signal transition-colors underline-offset-4 hover:underline">Join our Discord</a> or email <a href="mailto:support@stackryze.com" className="text-foreground font-medium hover:text-signal transition-colors underline-offset-4 hover:underline">support@stackryze.com</a>
             </div>
         </div>
     );
