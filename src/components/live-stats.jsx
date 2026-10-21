@@ -3,8 +3,8 @@ import { Activity, Globe2, ShieldCheck, Users } from "lucide-react";
 
 export function LiveStatsSection() {
   const [stats, setStats] = useState({
-    activeDomains: "46,000+",
-    totalUsers: "25,000+",
+    activeDomains: "60,000+",
+    totalUsers: "36,000+",
     countries: "120+",
     nameservers: "3"
   });
@@ -18,8 +18,8 @@ export function LiveStatsSection() {
           const data = await response.json();
           setStats(prev => ({
             ...prev,
-            activeDomains: data.totalDomains > 46000 ? data.totalDomains.toLocaleString() : "46,000+",
-            totalUsers: data.totalUsers > 25000 ? `${data.totalUsers.toLocaleString()}+` : "25,000+",
+            activeDomains: data.totalDomains > 60000 ? `${data.totalDomains.toLocaleString()}+` : "60,000+",
+            totalUsers: data.totalUsers > 36000 ? `${data.totalUsers.toLocaleString()}+` : "36,000+",
           }));
         }
       } catch {
@@ -34,7 +34,7 @@ export function LiveStatsSection() {
     { label: "Active Users", value: stats.totalUsers, icon: Users, accent: "text-signal", bg: "bg-signal/10", border: "border-signal/20" },
     { label: "Domains Active", value: stats.activeDomains, icon: Globe2, accent: "text-sky-400", bg: "bg-sky-400/10", border: "border-sky-400/20" },
     { label: "Countries Served", value: stats.countries, icon: Activity, accent: "text-amber-400", bg: "bg-amber-400/10", border: "border-amber-400/20" },
-    { label: "Global Anycast POPs", value: stats.nameservers, icon: ShieldCheck, accent: "text-purple-400", bg: "bg-purple-400/10", border: "border-purple-400/20" }
+    { label: "Global DNS Servers", value: stats.nameservers, icon: ShieldCheck, accent: "text-purple-400", bg: "bg-purple-400/10", border: "border-purple-400/20" }
   ];
 
   return (
@@ -51,7 +51,7 @@ export function LiveStatsSection() {
           Trusted by developers <span className="italic text-gradient-signal">worldwide</span>
         </h2>
         <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-          Real-time telemetry across our global authoritative Anycast infrastructure.
+          Real-time telemetry across our global authoritative DNS infrastructure.
         </p>
       </div>
 

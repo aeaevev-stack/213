@@ -22,7 +22,7 @@ const tiers = [
         name: "Infrastructure Backer",
         price: "$5",
         period: "per month",
-        description: "Directly funds Anycast server hosting and TLD registry renewal fees.",
+        description: "Directly funds authoritative DNS server hosting and TLD registry renewal fees.",
         popular: true,
         perks: [
             "Everything in Individual",
@@ -41,8 +41,7 @@ const tiers = [
         perks: [
             "Everything in Infrastructure Backer",
             "Company / Project logo in README & website",
-            "Priority support assistance via Discord",
-            "Dedicated sponsor shoutout on Twitter/X"
+            "Priority support assistance via Discord"
         ],
         href: "https://github.com/sponsors/sudheerbhuvana?frequency=recurring&amount=25"
     }
@@ -137,9 +136,9 @@ export function Donate() {
                             <Server className="w-5 h-5" />
                         </div>
                         <div>
-                            <p className="font-mono text-xl font-bold text-foreground">~$35 / Month Cost</p>
+                            <p className="font-mono text-xl font-bold text-foreground">Up to $150 / Month Cost</p>
                             <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                                Covers distributed Anycast DNS nodes, database replication, and upstream registry fees.
+                                Covers distributed DNS nodes, database replication, and upstream registry fees — funded out of pocket, without sponsors.
                             </p>
                         </div>
                     </div>

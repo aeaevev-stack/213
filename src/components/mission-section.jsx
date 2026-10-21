@@ -50,7 +50,7 @@ const features = [
     icon: Server,
     title: "Infrastructure",
     subtitle: "Reliable by design",
-    description: "Powered by globally distributed Anycast infrastructure with continuous monitoring, redundancy, and high availability to ensure dependable DNS performance and rapid resolution worldwide.",
+    description: "Powered by globally distributed DNS infrastructure with continuous monitoring, redundancy, and high availability to ensure dependable DNS performance and rapid resolution worldwide.",
     accent: "text-sky-500",
     bg: "bg-sky-500/10",
     border: "border-sky-500/20",
