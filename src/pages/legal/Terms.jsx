@@ -171,9 +171,9 @@ export function Terms() {
 
             <h3>13. Contact Information</h3>
             <ul className="list-none pl-0 space-y-2">
-                <li>General Support: <a href="mailto:support@stackryze.com" className="text-[#FF6B35] hover:underline">support@stackryze.com</a></li>
-                <li>Abuse Reports: <a href="mailto:reportabuse@stackryze.com" className="text-[#FF6B35] hover:underline">reportabuse@stackryze.com</a></li>
-                <li>Legal Inquiries: <a href="mailto:legal@stackryze.com" className="text-[#FF6B35] hover:underline">legal@stackryze.com</a></li>
+                <li>General Support: <a href="mailto:support@stackryze.com" className="text-signal hover:underline font-medium">support@stackryze.com</a></li>
+                <li>Abuse Reports: <a href="mailto:reportabuse@stackryze.com" className="text-signal hover:underline font-medium">reportabuse@stackryze.com</a></li>
+                <li>Legal Inquiries: <a href="mailto:legal@stackryze.com" className="text-signal hover:underline font-medium">legal@stackryze.com</a></li>
             </ul>
             <p>
                 We aim to respond within 5–7 business days.

@@ -50,7 +50,7 @@ export function Privacy() {
                 We use essential cookies for session persistence and authentication. We also use:
             </p>
             <ul>
-                <li><strong>Google Analytics (gtag.js):</strong> For website traffic analysis and usage statistics. Google Analytics may collect information about your device, browsing behavior, and interactions with our service. This data is subject to <a href="https://policies.google.com/privacy" className="text-[#FF6B35] hover:underline" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</li>
+                <li><strong>Google Analytics (gtag.js):</strong> For website traffic analysis and usage statistics. Google Analytics may collect information about your device, browsing behavior, and interactions with our service. This data is subject to <a href="https://policies.google.com/privacy" className="text-signal hover:underline font-medium" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</li>
             </ul>
             <p>
                 We do NOT use advertising cookies or engage in behavioral profiling for marketing purposes.
@@ -143,7 +143,7 @@ export function Privacy() {
                 <li>Deletion of your account and data</li>
             </ul>
             <p>
-                These rights are subject to applicable Indian law and the legal requirements of your jurisdiction. Contact <a href="mailto:privacy@stackryze.com" className="text-[#FF6B35] hover:underline">privacy@stackryze.com</a> or <a href="mailto:support@stackryze.com" className="text-[#FF6B35] hover:underline">support@stackryze.com</a> to exercise these rights. Requests may require verification of account ownership before processing. Response time: 5–10 business days.
+                These rights are subject to applicable Indian law and the legal requirements of your jurisdiction. Contact <a href="mailto:privacy@stackryze.com" className="text-signal hover:underline font-medium">privacy@stackryze.com</a> or <a href="mailto:support@stackryze.com" className="text-signal hover:underline font-medium">support@stackryze.com</a> to exercise these rights. Requests may require verification of account ownership before processing. Response time: 5–10 business days.
             </p>
 
             <h3>8.1. For European Union Users</h3>
@@ -156,7 +156,7 @@ export function Privacy() {
                 <li>Right to object to processing</li>
             </ul>
             <p>
-                To exercise these rights, contact <a href="mailto:privacy@stackryze.com" className="text-[#FF6B35] hover:underline">privacy@stackryze.com</a>.
+                To exercise these rights, contact <a href="mailto:privacy@stackryze.com" className="text-signal hover:underline font-medium">privacy@stackryze.com</a>.
             </p>
 
             <h3>9. Children's Privacy</h3>
@@ -196,10 +196,10 @@ export function Privacy() {
 
             <h3>14. Contact Information</h3>
             <ul className="list-none pl-0 space-y-2">
-                <li>Privacy Inquiries: <a href="mailto:privacy@stackryze.com" className="text-[#FF6B35] hover:underline">privacy@stackryze.com</a></li>
-                <li>General Support: <a href="mailto:support@stackryze.com" className="text-[#FF6B35] hover:underline">support@stackryze.com</a></li>
-                <li>Security Issues: <a href="mailto:security@stackryze.com" className="text-[#FF6B35] hover:underline">security@stackryze.com</a></li>
-                <li>Abuse Reports: <a href="mailto:reportabuse@stackryze.com" className="text-[#FF6B35] hover:underline">reportabuse@stackryze.com</a></li>
+                <li>Privacy Inquiries: <a href="mailto:privacy@stackryze.com" className="text-signal hover:underline font-medium">privacy@stackryze.com</a></li>
+                <li>General Support: <a href="mailto:support@stackryze.com" className="text-signal hover:underline font-medium">support@stackryze.com</a></li>
+                <li>Security Issues: <a href="mailto:security@stackryze.com" className="text-signal hover:underline font-medium">security@stackryze.com</a></li>
+                <li>Abuse Reports: <a href="mailto:reportabuse@stackryze.com" className="text-signal hover:underline font-medium">reportabuse@stackryze.com</a></li>
             </ul>
 
             <h3>15. Acknowledgment</h3>

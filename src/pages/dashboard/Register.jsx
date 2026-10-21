@@ -254,7 +254,7 @@ export default function Register() {
             toast({
                 title: "Domain Registered Successfully! 🎉",
                 description: `${domainLower}.${rootDomain} is now yours for 1 year! You can configure DNS settings from your dashboard.`,
-                className: "bg-[#e6f4ea] border-green-200 text-green-900"
+                className: "bg-signal/10 border-green-200 text-green-900"
             });
 
             await refresh();
@@ -275,17 +275,17 @@ export default function Register() {
             {/* Header */}
             <div className="mb-7">
                 <p className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-1">Account</p>
-                <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight">Register a Domain</h1>
-                <p className="text-sm text-slate-900 dark:text-white mt-1">Claim your free subdomain in seconds — valid for 1 year.</p>
+                <h1 className="font-display text-2xl md:text-3xl font-medium text-foreground leading-tight">Register a Domain</h1>
+                <p className="text-sm text-foreground mt-1">Claim your free subdomain in seconds — valid for 1 year.</p>
             </div>
 
             {/* Domain Usage Indicator */}
-            <div className={`mb-5 border rounded-xl p-4 backdrop-blur-md transition-colors ${!canRegisterMore ? 'bg-red-50/90 dark:bg-red-500/10 border-red-200/50 dark:border-red-500/20' : 'bg-white/60 dark:bg-white/5 border-slate-200/80 dark:border-white/10'
+            <div className={`mb-5 border rounded-xl p-4 backdrop-blur-md transition-colors ${!canRegisterMore ? 'bg-red-50/90 dark:bg-red-500/10 border-red-200/50 dark:border-red-500/20' : 'bg-card/70 border-border'
                 }`}>
                 <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
-                        <Info className={`w-4 h-4 ${!canRegisterMore ? 'text-red-500 dark:text-red-400' : 'text-slate-900 dark:text-white'}`} />
-                        <span className={`font-semibold text-sm ${!canRegisterMore ? 'text-red-900 dark:text-red-400' : 'text-slate-900 dark:text-white'}`}>
+                        <Info className={`w-4 h-4 ${!canRegisterMore ? 'text-red-500 dark:text-red-400' : 'text-foreground'}`} />
+                        <span className={`font-semibold text-sm ${!canRegisterMore ? 'text-red-900 dark:text-red-400' : 'text-foreground'}`}>
                             {rootDomain} Usage: {domainsRegistered} / {domainLimit}
                         </span>
                     </div>
@@ -295,7 +295,7 @@ export default function Register() {
                 </div>
 
                 {/* Progress Bar */}
-                <div className="w-full bg-slate-200 dark:bg-white/10 rounded-full h-2.5 mb-2">
+                <div className="w-full bg-accent dark:bg-secondary rounded-full h-2.5 mb-2">
                     <div
                         className={`h-2.5 rounded-full transition-all ${usagePercentage >= 100 ? 'bg-red-600 dark:bg-red-500' : usagePercentage >= 80 ? 'bg-amber-500' : 'bg-green-600 dark:bg-green-500'
                             }`}
@@ -315,7 +315,7 @@ export default function Register() {
             </div>
 
             {/* Registration Card */}
-            <div className="bg-white/60 dark:bg-white/5 backdrop-blur-md p-5 md:p-6 rounded-xl border border-slate-200/80 dark:border-white/10">
+            <div className="bg-card/70 backdrop-blur-md p-5 md:p-6 rounded-xl border border-border">
                 {!canRegisterMore && (
                     <div className="mb-5 flex items-start gap-3 p-4 bg-red-50/90 dark:bg-red-500/10 border border-red-200/50 dark:border-red-500/20 rounded-lg">
                         <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
@@ -338,7 +338,7 @@ export default function Register() {
                 {/* Domain Input */}
                 <div className="space-y-6">
                     <div>
-                        <label className="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                        <label className="text-sm font-bold text-foreground mb-3 flex items-center gap-2">
                             <Globe className="w-4 h-4" />
                             Choose Your Domain Name
                         </label>
@@ -349,10 +349,10 @@ export default function Register() {
                                     value={domain}
                                     onChange={(e) => setDomain(e.target.value)}
                                     placeholder="your-awesome-project"
-                                    className="font-mono text-sm h-11 pr-10 rounded-t-lg rounded-b-none sm:rounded-l-lg sm:rounded-r-none border-b-0 sm:border-b sm:border-r-0 focus:z-10 w-full bg-white/50 dark:bg-black/40 border-slate-200/80 dark:border-white/10 text-slate-900 dark:text-white"
+                                    className="font-mono text-sm h-11 pr-10 rounded-t-lg rounded-b-none sm:rounded-l-lg sm:rounded-r-none border-b-0 sm:border-b sm:border-r-0 focus:z-10 w-full bg-input/50 border-border text-foreground"
                                 />
                                 {isChecking && (
-                                    <Loader2 className="w-4 h-4 text-slate-400 animate-spin absolute right-3 top-1/2 -translate-y-1/2" />
+                                    <Loader2 className="w-4 h-4 text-muted-foreground animate-spin absolute right-3 top-1/2 -translate-y-1/2" />
                                 )}
                                 {!isChecking && isAvailable === true && (
                                     <CheckCircle className="w-4 h-4 text-green-500 absolute right-3 top-1/2 -translate-y-1/2" />
@@ -366,21 +366,21 @@ export default function Register() {
                                     type="button"
                                     onClick={() => setDropdownOpen(o => !o)}
                                     onBlur={() => setTimeout(() => setDropdownOpen(false), 150)}
-                                    className="w-full h-full flex items-center justify-between gap-2 px-3 bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-sm font-bold focus:outline-none cursor-pointer rounded-b-lg rounded-t-none sm:rounded-r-lg sm:rounded-l-none border border-transparent shadow-sm"
+                                    className="w-full h-full flex items-center justify-between gap-2 px-3 bg-foreground text-background text-sm font-bold focus:outline-none cursor-pointer rounded-b-lg rounded-t-none sm:rounded-r-lg sm:rounded-l-none border border-transparent shadow-sm"
                                 >
                                     <span className="font-mono">.{rootDomain}</span>
-                                    <svg className={`w-3.5 h-3.5 text-white dark:text-slate-900 flex-shrink-0 transition-transform duration-150 ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
+                                    <svg className={`w-3.5 h-3.5 text-background flex-shrink-0 transition-transform duration-150 ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
                                 </button>
                                 {dropdownOpen && (
-                                    <div className="absolute top-[calc(100%+4px)] left-0 right-0 z-50 border border-slate-200 dark:border-white/10 rounded-xl overflow-hidden shadow-lg bg-white/90 dark:bg-[#1A1A1A]/90 backdrop-blur-xl">
+                                    <div className="absolute top-[calc(100%+4px)] left-0 right-0 z-50 border border-border dark:border-border rounded-xl overflow-hidden shadow-lg bg-card/90 backdrop-blur-xl">
                                         {availableDomains.map(d => (
                                             <button
                                                 key={d}
                                                 type="button"
                                                 onMouseDown={() => { setRootDomain(d); setDropdownOpen(false); }}
                                                 className={`w-full text-left px-4 py-3 font-mono font-bold text-sm transition-colors ${d === rootDomain
-                                                        ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
-                                                        : 'bg-transparent text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10'
+                                                        ? 'bg-foreground text-background'
+                                                        : 'bg-transparent text-foreground hover:bg-secondary dark:hover:bg-secondary'
                                                     }`}
                                             >
                                                 .{d}
@@ -440,10 +440,10 @@ export default function Register() {
                                         <Shield className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-slate-900 dark:text-white font-extrabold text-base mb-1">
+                                        <h3 className="font-display text-foreground text-base font-medium mb-1">
                                             GitHub Verification Required
                                         </h3>
-                                        <p className="text-slate-900 dark:text-white opacity-80 text-xs mb-3">
+                                        <p className="text-foreground opacity-80 text-xs mb-3">
                                             Star our repo and verify to prevent abuse and keep domains free.
                                         </p>
                                         <div className="flex flex-col sm:flex-row gap-2">
@@ -452,7 +452,7 @@ export default function Register() {
                                                 href="https://github.com/stackryze/FreeDomains"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-white dark:bg-white/10 text-slate-900 dark:text-white font-bold text-xs border border-slate-200 dark:border-white/20 hover:bg-slate-50 dark:hover:bg-white/20 shadow-sm transition duration-200 cursor-pointer rounded-lg"
+                                                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-white dark:bg-secondary text-foreground font-bold text-xs border border-border dark:border-foreground/25 hover:bg-muted dark:hover:bg-accent shadow-sm transition duration-200 cursor-pointer rounded-lg"
                                             >
                                                 <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                                                 Star Repo
@@ -460,7 +460,7 @@ export default function Register() {
                                             {/* Step 2: Verify */}
                                             <a
                                                 href={`${API_BASE}/github/kyc/start?domain=${encodeURIComponent(domain)}&root=${encodeURIComponent(rootDomain)}`}
-                                                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold text-xs hover:bg-slate-800 dark:hover:bg-slate-200 shadow-sm transition duration-200 cursor-pointer rounded-lg"
+                                                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-foreground text-background font-bold text-xs hover:bg-foreground/90 dark:hover:bg-accent shadow-sm transition duration-200 cursor-pointer rounded-lg"
                                             >
                                                 <Github className="w-3.5 h-3.5" />
                                                 Verify
@@ -477,15 +477,15 @@ export default function Register() {
                         user?.githubVerified && (
                             <>
                                 {/* Registration Period Info */}
-                                <div className="bg-slate-50 dark:bg-black/40 border border-slate-200/80 dark:border-white/10 rounded-lg p-3">
+                                <div className="bg-muted dark:bg-black/40 border border-border rounded-lg p-3">
                                     <div className="space-y-2">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-xs font-semibold text-slate-900 dark:text-white opacity-80">Registration Period:</span>
-                                            <span className="text-xs font-bold text-slate-900 dark:text-white">1 Year (Renewable)</span>
+                                            <span className="text-xs font-semibold text-foreground opacity-80">Registration Period:</span>
+                                            <span className="text-xs font-bold text-foreground">1 Year (Renewable)</span>
                                         </div>
-                                        <div className="flex items-center justify-between border-t border-slate-200 dark:border-white/10 pt-2">
-                                            <span className="text-xs font-semibold text-slate-900 dark:text-white opacity-80">Expires On:</span>
-                                            <span className="text-xs font-mono font-bold text-slate-900 dark:text-white">
+                                        <div className="flex items-center justify-between border-t border-border dark:border-border pt-2">
+                                            <span className="text-xs font-semibold text-foreground opacity-80">Expires On:</span>
+                                            <span className="text-xs font-mono font-bold text-foreground">
                                                 {new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toLocaleDateString('en-GB', {
                                                     year: 'numeric',
                                                     month: 'short',
@@ -497,15 +497,15 @@ export default function Register() {
                                 </div>
 
                                 {/* Terms Acceptance */}
-                                <div className="bg-white/60 dark:bg-white/5 backdrop-blur-md border border-slate-200/80 dark:border-white/10 rounded-lg p-4">
+                                <div className="bg-card/70 backdrop-blur-md border border-border rounded-lg p-4">
                                     <div className="flex items-start gap-3">
                                         <Checkbox
                                             id="tos"
                                             checked={acceptedToS}
                                             onCheckedChange={(checked) => setAcceptedToS(checked)}
-                                            className="mt-0.5 h-4 w-4 bg-white dark:bg-black/40 border-slate-300 dark:border-white/20"
+                                            className="mt-0.5 h-4 w-4 bg-input border-border dark:border-foreground/25"
                                         />
-                                        <label htmlFor="tos" className="text-xs text-slate-900 dark:text-white leading-tight cursor-pointer flex-1 font-medium opacity-90">
+                                        <label htmlFor="tos" className="text-xs text-foreground leading-tight cursor-pointer flex-1 font-medium opacity-90">
                                             I agree to the{" "}
                                             <a href="/terms" target="_blank" className="font-bold underline hover:text-orange-500 transition-colors">
                                                 Terms of Service
@@ -544,7 +544,7 @@ export default function Register() {
                             !isAvailable || !acceptedToS || !captchaToken || isSubmitting || !canRegisterMore ||
                             !user?.githubVerified
                         }
-                        className="w-full bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-extrabold py-3 text-sm rounded-lg shadow-sm hover:bg-slate-800 dark:hover:bg-slate-200 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center"
+                        className="w-full bg-foreground text-background font-extrabold py-3 text-sm rounded-lg shadow-sm hover:bg-foreground/90 dark:hover:bg-accent transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center"
                     >
                         {isSubmitting ? (
                             <>

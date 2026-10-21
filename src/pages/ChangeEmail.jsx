@@ -106,35 +106,35 @@ export default function ChangeEmail() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-[#FFF8F0] px-4 font-sans" style={{ paddingTop: 'var(--incident-height, 0px)' }}>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-transparent px-4 py-12 font-sans" style={{ paddingTop: 'calc(var(--incident-height, 0px) + 2rem)' }}>
             <Link to="/" className="mb-8 flex items-center gap-3 group">
-                <img src="/stackryze_logo_black.png" alt="Stackryze Logo" className="h-12 w-auto dark:hidden" />
-                        <img src="/stackryze_logo_white.png" alt="Stackryze Logo" className="h-12 w-auto hidden dark:block" />
-                <span className="text-2xl font-bold text-[#1A1A1A] dark:text-white tracking-tight">Stackryze Domains</span>
+                <img src="/stackryze_logo_black.png" alt="Stackryze Logo" className="h-9 w-auto dark:hidden" />
+                <img src="/stackryze_logo_white.png" alt="Stackryze Logo" className="h-9 w-auto hidden dark:block" />
+                <span className="text-xl font-display font-medium text-foreground tracking-tight">Stackryze Domains</span>
             </Link>
 
-            <div className="w-full max-w-md bg-white dark:bg-[#111] border-2 border-[#E5E3DF] dark:border-[#27272a] p-8 md:p-10 rounded-xl">
-                <Mail className="w-16 h-16 text-orange-500 mx-auto mb-4" />
-                <h1 className="text-2xl font-bold text-[#1A1A1A] dark:text-white mb-2 text-center">Update Your Email</h1>
+            <div className="w-full max-w-md bg-card/80 backdrop-blur-xl border border-border p-8 md:p-10 rounded-2xl shadow-sm">
+                <Mail className="w-12 h-12 text-signal mx-auto mb-4" />
+                <h1 className="text-3xl font-display font-medium text-foreground mb-2 text-center">Update Your Email</h1>
 
                 {isRequired && (
-                    <div className="mb-6 bg-amber-50 border border-amber-200 text-amber-900 p-4 rounded-lg flex gap-3 text-sm">
-                        <AlertCircle className="w-5 h-5 flex-shrink-0 text-amber-600 mt-0.5" />
+                    <div className="mb-6 bg-amber-500/10 border border-amber-500/20 text-foreground p-4 rounded-xl flex gap-3 text-sm">
+                        <AlertCircle className="w-5 h-5 flex-shrink-0 text-amber-500 mt-0.5" />
                         <div>
-                            <p className="font-bold mb-1">Action Required</p>
-                            <p>Your current email address is a GitHub noreply address and cannot receive verification emails. Please update it to a valid personal email to continue.</p>
+                            <p className="font-semibold text-amber-500 mb-1">Action Required</p>
+                            <p className="text-xs text-muted-foreground">Your current email address is a GitHub noreply address and cannot receive verification emails. Please update it to a valid personal email to continue.</p>
                         </div>
                     </div>
                 )}
 
-                <div className="mb-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
-                    <p className="text-sm text-gray-600 mb-1">Current Email</p>
-                    <p className="font-mono text-sm text-gray-900 break-all">{currentEmail}</p>
+                <div className="mb-6 p-4 bg-muted/40 rounded-xl border border-border">
+                    <p className="text-xs text-muted-foreground mb-1 font-medium">Current Email</p>
+                    <p className="font-mono text-sm text-foreground break-all">{currentEmail}</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-foreground mb-2">
                             New Email Address
                         </label>
                         <input
@@ -142,11 +142,11 @@ export default function ChangeEmail() {
                             required
                             value={newEmail}
                             onChange={(e) => setNewEmail(e.target.value)}
-                            className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                            className="w-full px-3.5 py-2.5 bg-background border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/30 text-sm"
                             placeholder="your.email@example.com"
                             autoFocus
                         />
-                        <p className="text-xs text-gray-500 mt-2">
+                        <p className="text-xs text-muted-foreground mt-2">
                             Use a valid personal email address that you can access.
                         </p>
                     </div>
@@ -154,7 +154,7 @@ export default function ChangeEmail() {
                     <button
                         type="submit"
                         disabled={isLoading || !newEmail}
-                        className="w-full bg-[#1A1A1A] text-white py-3 rounded-lg font-bold hover:shadow-[4px_4px_0px_0px_#FFD23F] transition-all duration-200 disabled:opacity-50"
+                        className="w-full bg-foreground text-background py-3.5 rounded-xl font-semibold text-sm hover:bg-signal hover:text-signal-foreground transition-all duration-200 disabled:opacity-50 shadow-sm"
                     >
                         {isLoading ? (
                             <span className="flex items-center justify-center gap-2">
@@ -164,13 +164,13 @@ export default function ChangeEmail() {
                     </button>
                 </form>
 
-                <div className="mt-6 text-center text-sm text-gray-600">
+                <div className="mt-6 text-center text-xs text-muted-foreground">
                     <p>After updating, you'll receive a verification code at your new email address.</p>
                 </div>
             </div>
 
-            <div className="mt-6 text-center text-sm text-gray-600">
-                Need help? <a href="https://discord.gg/wr7s97cfM7" target="_blank" rel="noopener noreferrer" className="text-black font-medium hover:underline">Join our Discord</a> or email <a href="mailto:support@stackryze.com" className="text-black font-medium hover:underline">support@stackryze.com</a>
+            <div className="mt-6 text-center text-xs text-muted-foreground">
+                Need help? <a href="https://discord.gg/wr7s97cfM7" target="_blank" rel="noopener noreferrer" className="text-foreground font-medium hover:text-signal transition-colors underline-offset-4 hover:underline">Join our Discord</a> or email <a href="mailto:support@stackryze.com" className="text-foreground font-medium hover:text-signal transition-colors underline-offset-4 hover:underline">support@stackryze.com</a>
             </div>
         </div>
     );

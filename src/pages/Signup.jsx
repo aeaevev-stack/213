@@ -11,41 +11,39 @@ export default function Signup() {
     return (
         <>
             <Header />
-            <div className="min-h-screen flex flex-col items-center justify-center bg-transparent px-4 py-10" style={{ paddingTop: 'calc(4rem + var(--incident-height, 0px) + 2.5rem)' }}>
-                <div className="w-full max-w-md bg-white dark:bg-transparent rounded-[24px] border border-slate-200/80 dark:border-white/5 p-8 md:p-10 relative overflow-hidden">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent dark:via-white/10"></div>
-
+            <div className="min-h-screen flex flex-col items-center justify-center bg-transparent px-4 py-12" style={{ paddingTop: 'calc(4rem + var(--incident-height, 0px) + 2.5rem)' }}>
+                <div className="w-full max-w-md bg-card/80 backdrop-blur-xl rounded-2xl border border-border p-8 md:p-10 relative shadow-sm">
                     {/* Header */}
                     <div className="mb-8 flex items-start justify-between">
                         <div>
-                            <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1">Create Account</h1>
-                            <p className="text-slate-500 dark:text-slate-400 text-sm">Sign up to register your free subdomains</p>
+                            <h1 className="text-3xl font-display font-medium text-foreground tracking-tight mb-1.5">Create Account</h1>
+                            <p className="text-muted-foreground text-sm">Sign up to claim your free subdomains</p>
                         </div>
                         <Link to="/" className="flex items-center gap-2 shrink-0">
-                            <img src="/stackryze_logo_black.png" alt="Stackryze Logo" className="h-8 w-auto dark:hidden" />
-                            <img src="/stackryze_logo_white.png" alt="Stackryze Logo" className="h-8 w-auto hidden dark:block" />
+                            <img src="/stackryze_logo_black.png" alt="Stackryze Logo" className="h-7 w-auto dark:hidden" />
+                            <img src="/stackryze_logo_white.png" alt="Stackryze Logo" className="h-7 w-auto hidden dark:block" />
                         </Link>
                     </div>
 
                     <button
                         onClick={handleSignup}
-                        className="w-full flex items-center justify-center gap-3 bg-black text-white dark:bg-white dark:text-black py-3 rounded-xl font-medium text-sm hover:bg-neutral-800 dark:hover:bg-slate-200 transition-all duration-300 shadow-sm"
+                        className="w-full flex items-center justify-center gap-2.5 bg-foreground text-background py-3.5 rounded-xl font-semibold text-sm hover:bg-signal hover:text-signal-foreground transition-all duration-200 shadow-sm group"
                     >
-                        <ShieldCheck className="w-5 h-5" />
-                        Continue with Stackryze
+                        <ShieldCheck className="w-4 h-4 text-signal group-hover:text-signal-foreground transition-colors" />
+                        <span>Continue with Stackryze SSO</span>
                     </button>
 
-                    <p className="mt-6 text-center text-xs text-slate-400 dark:text-slate-500">
+                    <p className="mt-6 text-center text-xs text-muted-foreground">
                         You'll be redirected to create an account or sign in securely via Stackryze SSO.
                     </p>
                 </div>
 
-                <div className="mt-6 text-center text-sm text-slate-500 dark:text-slate-400">
-                    Already have an account? <Link to="/login" className="text-slate-900 dark:text-white font-medium hover:underline">Sign In</Link>
+                <div className="mt-6 text-center text-xs text-muted-foreground">
+                    Already have an account? <Link to="/login" className="text-foreground font-semibold hover:text-signal transition-colors underline-offset-4 hover:underline">Sign In</Link>
                 </div>
 
-                <p className="mt-8 text-xs text-slate-400">
-                    &copy; 2026 Stackryze domains
+                <p className="mt-8 text-xs text-muted-foreground/60">
+                    &copy; 2026 Stackryze domains · All rights reserved
                 </p>
             </div>
         </>

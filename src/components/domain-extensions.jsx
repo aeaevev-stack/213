@@ -1,72 +1,79 @@
-import { Globe2, Sparkles, Server, Zap, Shield } from "lucide-react";
+import { Globe2, Sparkles, Server, Zap, Shield, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function DomainExtensionsSection() {
   const extensions = [
     {
       ext: ".indevs.in",
-      description: "Empowering innovation with accessible, secure, and trusted digital identities for developers, organizations, and communities.",
+      description: "Accessible, secure digital identities for developers and open-source projects.",
       icon: Globe2,
-      accent: "from-blue-500 to-indigo-500",
-      iconColor: "text-blue-500",
-      bgHover: "hover:bg-blue-50/50"
     },
     {
       ext: ".sryze.cc",
-      description: "A modern namespace for creators, entrepreneurs, and digital-first brands seeking memorable online identities.",
+      description: "A modern namespace for creators, projects, and digital-first applications.",
       icon: Sparkles,
-      accent: "from-orange-400 to-red-500",
-      iconColor: "text-orange-500",
-      bgHover: "hover:bg-orange-50/50"
     },
     {
       ext: ".ryzedns.org",
-      description: "Supporting self-hosted infrastructure, open-source ecosystems, and network services with dependable naming solutions.",
+      description: "Supporting self-hosted infrastructure and open-source network services.",
       icon: Server,
-      accent: "from-emerald-400 to-teal-500",
-      iconColor: "text-emerald-500",
-      bgHover: "hover:bg-emerald-50/50"
     },
     {
       ext: ".nx.kg",
-      description: "A concise namespace built for the next generation of applications, platforms, and internet services.",
+      description: "A concise namespace built for the next generation of web applications.",
       icon: Zap,
-      accent: "from-purple-500 to-pink-500",
-      iconColor: "text-purple-500",
-      bgHover: "hover:bg-purple-50/50"
     },
     {
       ext: ".ryzn.pro",
-      description: "A premium, pro-grade domain namespace for developer tools, SaaS applications, and professional web services.",
+      description: "Pro-grade domain namespace for developer tools and SaaS platforms.",
       icon: Shield,
-      accent: "from-cyan-500 to-blue-600",
-      iconColor: "text-cyan-500",
-      bgHover: "hover:bg-cyan-50/50"
     }
   ];
 
   return (
-    <div className="w-full relative z-10 flex flex-col justify-center h-full">
-      <div className="mb-8 md:mb-12 space-y-2 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          Available Namespaces
+    <div className="w-full flex flex-col justify-start">
+      <div className="mb-6 md:mb-8 space-y-2">
+        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/80 backdrop-blur-md px-3 py-1 text-xs font-mono tracking-wider uppercase mb-2">
+          <Globe2 className="w-3.5 h-3.5 text-signal" />
+          <span>Domain Registry</span>
+        </div>
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+          Available <span className="italic text-gradient-signal">Namespaces</span>
         </h2>
-        <p className="max-w-xl mx-auto text-sm md:text-base text-slate-900 dark:text-white opacity-80 leading-relaxed font-medium">
-          Five unique extensions. Infinite possibilities. Claim yours instantly.
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+          Curated extensions powered by Stackryze global authoritative DNS.
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 w-full xl:w-fit mx-auto">
+      <div className="flex flex-col gap-2.5 w-full">
         {extensions.map((item, idx) => (
-          <div
+          <Link
             key={idx}
-            title={item.description}
-            className={`group flex items-center justify-center md:justify-start gap-2 md:gap-3 bg-white/60 dark:bg-white/5 backdrop-blur-lg border border-slate-200/60 dark:border-white/10 px-4 py-3 md:px-6 md:py-3.5 rounded-2xl md:rounded-[2rem] shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 ease-out cursor-help ${item.bgHover}`}
+            to="/register"
+            className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-card/70 backdrop-blur-md px-4 py-3.5 transition-all duration-200 hover:border-foreground/25 hover:bg-card shadow-sm"
           >
-            <item.icon className={`w-4 h-4 md:w-5 md:h-5 ${item.iconColor} transition-transform duration-300 group-hover:scale-110 shrink-0`} strokeWidth={2.5} />
-            <span className="text-base md:text-lg font-extrabold text-slate-900 dark:text-white tracking-tight">
-              {item.ext}
-            </span>
-          </div>
+            <div className="flex items-center gap-3.5 min-w-0">
+              <div className="w-9 h-9 flex items-center justify-center rounded-xl bg-secondary border border-border text-foreground shrink-0 transition-colors group-hover:border-foreground/20">
+                <item.icon className="w-4 h-4 text-signal" strokeWidth={2} />
+              </div>
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-sm md:text-base font-bold text-foreground tracking-tight">
+                    {item.ext}
+                  </span>
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-signal bg-signal/10 px-2 py-0.5 rounded-full border border-signal/20 font-medium">
+                    Free
+                  </span>
+                </div>
+                <p className="text-xs text-muted-foreground truncate max-w-[220px] sm:max-w-md">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+            <div className="w-7 h-7 rounded-lg bg-secondary/60 flex items-center justify-center text-muted-foreground group-hover:text-foreground group-hover:bg-secondary transition-all shrink-0">
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </div>
+          </Link>
         ))}
       </div>
     </div>

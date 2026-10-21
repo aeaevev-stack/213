@@ -3,8 +3,8 @@ import { Activity, Globe2, ShieldCheck, Users } from "lucide-react";
 
 export function LiveStatsSection() {
   const [stats, setStats] = useState({
-    activeDomains: "46,000+",
-    totalUsers: "25,000+",
+    activeDomains: "60,000+",
+    totalUsers: "36,000+",
     countries: "120+",
     nameservers: "3"
   });
@@ -18,8 +18,8 @@ export function LiveStatsSection() {
           const data = await response.json();
           setStats(prev => ({
             ...prev,
-            activeDomains: data.totalDomains > 46000 ? data.totalDomains.toLocaleString() : "46,000+",
-            totalUsers: data.totalUsers > 25000 ? `${data.totalUsers.toLocaleString()}+` : "25,000+",
+            activeDomains: data.totalDomains > 60000 ? `${data.totalDomains.toLocaleString()}+` : "60,000+",
+            totalUsers: data.totalUsers > 36000 ? `${data.totalUsers.toLocaleString()}+` : "36,000+",
           }));
         }
       } catch {
@@ -31,36 +31,50 @@ export function LiveStatsSection() {
   }, []);
 
   const statItems = [
-    { label: "Users", value: stats.totalUsers, icon: Users, iconColor: "text-emerald-600 dark:text-emerald-400", iconBg: "bg-emerald-50 dark:bg-emerald-500/10" },
-    { label: "Domains", value: stats.activeDomains, icon: Globe2, iconColor: "text-blue-600 dark:text-blue-400", iconBg: "bg-blue-50 dark:bg-blue-500/10" },
-    { label: "Countries", value: stats.countries, icon: Activity, iconColor: "text-amber-600 dark:text-amber-400", iconBg: "bg-amber-50 dark:bg-amber-500/10" },
-    { label: "Global Nameservers", value: stats.nameservers, icon: ShieldCheck, iconColor: "text-indigo-600 dark:text-indigo-400", iconBg: "bg-indigo-50 dark:bg-indigo-500/10" }
+    { label: "Active Users", value: stats.totalUsers, icon: Users, accent: "text-signal", bg: "bg-signal/10", border: "border-signal/20" },
+    { label: "Domains Active", value: stats.activeDomains, icon: Globe2, accent: "text-sky-400", bg: "bg-sky-400/10", border: "border-sky-400/20" },
+    { label: "Countries Served", value: stats.countries, icon: Activity, accent: "text-amber-400", bg: "bg-amber-400/10", border: "border-amber-400/20" },
+    { label: "Global DNS Servers", value: stats.nameservers, icon: ShieldCheck, accent: "text-purple-400", bg: "bg-purple-400/10", border: "border-purple-400/20" }
   ];
 
   return (
-    <div className="w-full relative flex flex-col justify-center h-full">
-      <div className="mb-8 md:mb-12 space-y-2 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          Trusted by developers <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-emerald-700">worldwide</span>
+    <div className="w-full flex flex-col justify-start">
+      <div className="mb-6 md:mb-8 space-y-2">
+        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/80 backdrop-blur-md px-3 py-1 text-xs font-mono tracking-wider uppercase mb-2">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-signal opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-signal" />
+          </span>
+          <span>Live Network Metrics</span>
+        </div>
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+          Trusted by developers <span className="italic text-gradient-signal">worldwide</span>
         </h2>
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+          Real-time telemetry across our global authoritative DNS infrastructure.
+        </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 md:gap-4 w-full xl:w-fit mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full">
         {statItems.map((stat, idx) => (
           <div
             key={idx}
-            className="group bg-white/60 dark:bg-white/5 backdrop-blur-lg border border-slate-200/60 dark:border-white/10 rounded-2xl md:rounded-[2rem] px-4 py-3 md:px-5 md:py-3.5 flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-2 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 ease-out cursor-default"
+            className="group relative bg-card/70 backdrop-blur-md border border-border rounded-2xl p-5 md:p-6 flex flex-col justify-between hover:border-foreground/25 hover:bg-card transition-all duration-300 shadow-sm"
           >
-            <div className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full ${stat.iconBg} ${stat.iconColor} shadow-sm transition-transform duration-500 ease-out group-hover:scale-110 shrink-0`}>
-              <stat.icon className="w-4 h-4 md:w-5 md:h-5" strokeWidth={2.5} />
+            <div className="flex items-center justify-between mb-6">
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${stat.bg} ${stat.accent} ${stat.border} border transition-transform duration-300 group-hover:scale-105`}>
+                <stat.icon className="w-5 h-5" strokeWidth={2.2} />
+              </div>
+              <span className="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest"></span>
             </div>
-            <div className="flex flex-col md:flex-row items-center md:items-baseline gap-0.5 md:gap-1.5">
-              <span className="text-lg md:text-xl font-black text-slate-900 dark:text-white tracking-tight leading-none">
+            
+            <div>
+              <div className="text-3xl md:text-4xl font-bold font-mono text-foreground tracking-tight mb-1">
                 {stat.value}
-              </span>
-              <span className={`${stat.iconColor} text-[10px] md:text-xs font-extrabold uppercase tracking-wider`}>
+              </div>
+              <div className="text-xs md:text-sm font-medium text-muted-foreground">
                 {stat.label}
-              </span>
+              </div>
             </div>
           </div>
         ))}
@@ -68,3 +82,4 @@ export function LiveStatsSection() {
     </div>
   );
 }
+

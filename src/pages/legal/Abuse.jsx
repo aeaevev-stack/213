@@ -131,9 +131,9 @@ export function Abuse() {
 
             <h3>8. Additional Contacts</h3>
             <ul className="list-none pl-0 space-y-2">
-                <li>Security Vulnerabilities: <a href="mailto:security@stackryze.com" className="text-[#FF6B35] hover:underline">security@stackryze.com</a></li>
-                <li>Legal Inquiries: <a href="mailto:legal@stackryze.com" className="text-[#FF6B35] hover:underline">legal@stackryze.com</a></li>
-                <li>General Support: <a href="mailto:support@stackryze.com" className="text-[#FF6B35] hover:underline">support@stackryze.com</a></li>
+                <li>Security Vulnerabilities: <a href="mailto:security@stackryze.com" className="text-signal hover:underline font-medium">security@stackryze.com</a></li>
+                <li>Legal Inquiries: <a href="mailto:legal@stackryze.com" className="text-signal hover:underline font-medium">legal@stackryze.com</a></li>
+                <li>General Support: <a href="mailto:support@stackryze.com" className="text-signal hover:underline font-medium">support@stackryze.com</a></li>
             </ul>
 
             <h3>9. Transparency and Accountability</h3>

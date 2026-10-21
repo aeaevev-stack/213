@@ -35,8 +35,8 @@ export function SponsorsSection() {
         <section className="w-full pt-6 md:pt-10 pb-4 bg-transparent">
             <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
                 <div className="mb-8 text-center">
-                    <h2 className="text-sm md:text-base font-bold text-slate-900 dark:text-white opacity-60 tracking-wider uppercase">
-                        Trusted By
+                    <h2 className="text-xs font-mono font-medium text-muted-foreground tracking-widest uppercase">
+                        Supported by industry leaders
                     </h2>
                 </div>
 

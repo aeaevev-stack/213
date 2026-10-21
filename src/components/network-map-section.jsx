@@ -17,7 +17,7 @@ export function NetworkMapSection() {
             Globally Distributed Name Servers
           </h2>
           <p className="max-w-2xl mx-auto text-base md:text-lg text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
-            Lightning-fast resolution from edge nodes worldwide, ensuring your domain resolves instantly anywhere on the planet.
+            Lightning-fast resolution from our authoritative name servers worldwide, ensuring your domain resolves instantly anywhere on the planet.
           </p>
         </div>
 
