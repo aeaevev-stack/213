@@ -5,7 +5,7 @@ export function LegalLayout({ children, title, date }) {
     return (
         <div className="flex flex-col min-h-screen w-full bg-transparent">
             <Header />
-            <main className="flex-1 w-full pt-[calc(8rem+var(--incident-height,0px))] pb-20 px-6">
+            <main className="flex-1 w-full pt-[calc(6rem+var(--incident-height,0px))] pb-20 px-6 md:px-12 lg:px-16">
                 <div className="max-w-3xl mx-auto">
                     <h1 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
                         {title}

@@ -30,20 +30,20 @@ export default function Overview() {
 
     if (loading && subdomains.length === 0) {
         return (
-            <div className="max-w-5xl animate-pulse space-y-6">
-                <div className="h-8 bg-[#E5E3DF] rounded-lg w-48" />
+            <div className="max-w-[1600px] animate-pulse space-y-6">
+                <div className="h-8 bg-muted rounded-lg w-48" />
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {[...Array(4)].map((_, i) => <div key={i} className="h-28 bg-[#E5E3DF] rounded-2xl" />)}
+                    {[...Array(4)].map((_, i) => <div key={i} className="h-28 bg-muted rounded-2xl" />)}
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {[...Array(4)].map((_, i) => <div key={i} className="h-20 bg-[#E5E3DF] rounded-2xl" />)}
+                    {[...Array(4)].map((_, i) => <div key={i} className="h-20 bg-muted rounded-2xl" />)}
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="max-w-5xl space-y-6">
+        <div className="max-w-[1600px] space-y-6">
 
             {/* ── Greeting header ── */}
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">

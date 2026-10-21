@@ -16,7 +16,7 @@ export function About() {
             <Header />
 
             {/* Hero Section */}
-            <section className="pt-[calc(8rem+var(--incident-height,0px))] pb-20 px-6">
+            <section className="pt-[calc(6rem+var(--incident-height,0px))] pb-20 px-6 md:px-12 lg:px-16">
                 <div className="max-w-4xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-secondary text-foreground text-xs font-medium uppercase tracking-wider mb-6 border border-border">
                         <span className="relative flex h-2 w-2">
@@ -36,7 +36,7 @@ export function About() {
             </section>
 
             {/* The Why & Values */}
-            <section className="py-16 px-6 border-y border-border bg-transparent">
+            <section className="py-16 px-6 md:px-12 lg:px-16 border-y border-border bg-transparent">
                 <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h2 className="font-display text-3xl font-bold text-foreground mb-6">Why we built this</h2>
@@ -83,7 +83,7 @@ export function About() {
             </section>
 
             {/* Contact & Community */}
-            <section className="py-20 px-6">
+            <section className="py-20 px-6 md:px-12 lg:px-16">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Contact & Community</h2>
                     <p className="text-base md:text-lg text-muted-foreground mb-10">

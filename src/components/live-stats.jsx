@@ -65,7 +65,7 @@ export function LiveStatsSection() {
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${stat.bg} ${stat.accent} ${stat.border} border transition-transform duration-300 group-hover:scale-105`}>
                 <stat.icon className="w-5 h-5" strokeWidth={2.2} />
               </div>
-              <span className="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest">Live</span>
+              <span className="text-[10px] md:text-xs font-mono text-muted-foreground uppercase tracking-widest"></span>
             </div>
             
             <div>

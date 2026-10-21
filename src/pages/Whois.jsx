@@ -79,7 +79,7 @@ export function Whois() {
             <Header />
 
             {/* Hero */}
-            <section className="pt-[calc(6rem+var(--incident-height,0px))] pb-8 px-6">
+            <section className="pt-[calc(6rem+var(--incident-height,0px))] pb-8 px-6 md:px-12 lg:px-16">
                 <div className="max-w-3xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/80 border border-border text-foreground text-xs font-semibold uppercase tracking-widest mb-6 backdrop-blur-md">
                         <span className="relative flex h-2 w-2">
